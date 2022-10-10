@@ -1,0 +1,29 @@
+
+public class Aufgabe2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	public static int[] execute(F f, int n) {
+		for
+	}
+
+}
+
+
+interface F {
+	 public int f (int x);
+}
+
+class ImpF implements F {
+
+	@Override
+	public int f(int x) {
+		// TODO Auto-generated method stub
+		return x*x;
+		
+	}
+	
+}

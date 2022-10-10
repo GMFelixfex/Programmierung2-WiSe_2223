@@ -1,0 +1,38 @@
+public class Aufgabe1 {
+	public static void main(String[] args) {
+		System.out.println("Starting");
+	}
+	
+	
+	public void Eieruhr(int _timeInMs, String _notification) {
+		
+		Thread t1 = new Sleepthread(_timeInMs,_notification);
+		t1.start();
+		
+	}
+	
+
+}
+
+class Sleepthread extends Thread {
+	int timeInMs;
+	String notification; 
+	
+	public Sleepthread(int _timeInMs, String _notification) {
+		this.timeInMs = _timeInMs;
+		this.notification = _notification;
+	}
+	
+	public void run() {
+		schlafen(timeInMs);
+		System.out.println(notification);
+	}
+	
+	public static void schlafen(int _m) {
+		try {
+		Thread.sleep(1000*m);
+		} catch (InterruptedException t) {
+		
+		}
+	}
+}

@@ -1,0 +1,45 @@
+
+public class Aufgabe2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	public static int[] execute(F f, int n) {
+		int[] results = new int[n];
+		
+		for (int i = 0; i < n; i++) {
+			
+		}
+		return results;
+	}
+
+}
+
+
+interface F {
+	 public int f (int x);
+}
+
+class ImpF implements F {
+
+	@Override
+	public int f(int x) {
+		// TODO Auto-generated method stub
+		return x*x;
+		
+	}
+	
+}
+
+class Result {
+	private int[] result;
+	
+	public Result(int n) {
+		result = new int[n];
+	}
+	public synchronized void SetResult(int n, int partialResult) {
+		result[n] = partialResult;
+	}
+}

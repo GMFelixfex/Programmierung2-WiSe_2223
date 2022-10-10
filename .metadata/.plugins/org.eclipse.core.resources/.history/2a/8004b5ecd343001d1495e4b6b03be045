@@ -1,0 +1,71 @@
+
+public class Aufgabe2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	public static int[] execute(F f, int n) {
+		Result results = new Result(n);
+		for (int i = 0; i < n; i++) {
+			
+		}
+		return results.GetResult();
+	}
+
+}
+
+class ExecuteThread extends Thread{
+	Result result;
+	int n;
+	ImpF Function;
+	
+	public void run() {
+		int singleResult = Function.f(n);
+		result.SetResult(n, singleResult);
+	}
+}
+
+
+interface F {
+	 public int f (int x);
+}
+
+class ImpF implements F {
+
+	@Override
+	public int f(int x) {
+		// TODO Auto-generated method stub
+		return x*x;
+		
+	}
+	
+}
+
+class Result {
+	private int[] result;
+	
+	private int ResultCounter = 0;
+	
+	public Result(int n) {
+		result = new int[n];
+	}
+	public synchronized void SetResult(int n, int partialResult) {
+		result[n] = partialResult;
+		ResultCounter++;
+		if(ResultCounter == result.length) {
+			notify();
+		}
+	}
+	
+	public synchronized int[] GetResult() {
+		try {
+			wait();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
+	}
+}
